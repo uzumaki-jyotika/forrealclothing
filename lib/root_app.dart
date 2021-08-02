@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:forrealclothing/constants.dart';
+import 'package:forrealclothing/pages/Cart_Page.dart';
+import 'package:forrealclothing/pages/account_page.dart';
 import 'package:forrealclothing/pages/home_pages.dart';
+import 'package:forrealclothing/pages/more_Pages.dart';
+import 'package:forrealclothing/pages/store_page.dart';
 import 'constants.dart';
 
 class RootApp extends StatefulWidget {
@@ -17,7 +21,7 @@ class _RootAppState extends State<RootApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.brown[100],
       bottomNavigationBar: getFooter(),
       appBar: getAppBar(),
       body: getBody(),
@@ -28,39 +32,11 @@ class _RootAppState extends State<RootApp> {
     return IndexedStack(
       index: activeTab,
       children: [
+        StorePage(),
         HomePages(),
-        Center(
-          child: Text("Home",
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight:
-                FontWeight.bold),
-          ),
-        ),
-        Center(
-          child: Text("Account",
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight:
-                FontWeight.bold),
-          ),
-        ),
-        Center(
-          child: Text("Cart",
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight:
-                FontWeight.bold),
-          ),
-        ),
-        Center(
-          child: Text("More",
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight:
-                FontWeight.bold),
-          ),
-        ),
+        AccountPage(),
+        CartPage(),
+        MorePage(),
       ],
     );
   }
@@ -70,59 +46,57 @@ class _RootAppState extends State<RootApp> {
       case 0:
         return AppBar(
           elevation: 0.8,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.brown[300],
           title: Text(
             "Forreal Home",
-            style: TextStyle(color: Colors.brown),
+            style: TextStyle(color: Colors.brown[50]),
           ),
         );
       case 1:
         return AppBar(
           elevation: 0.8,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.brown[300],
           title: Text(
             "Search",
-            style: TextStyle(color: Colors.brown),
+            style: TextStyle(color: Colors.brown[50]),
           ),
         );
       case 2:
         return AppBar(
           elevation: 0.8,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.brown[300],
           title: Text(
             "Cart",
-            style: TextStyle(color: Colors.brown),
+            style: TextStyle(color: Colors.brown[50]),
           ),
         );
       case 3:
         return AppBar(
           elevation: 0.8,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.brown[300],
           title: Text(
             "Forreal",
-            style: TextStyle(color: Colors.brown),
+            style: TextStyle(color: Colors.brown[50]),
           ),
         );
       case 4:
         return AppBar(
           elevation: 0.8,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.brown[300],
           title: Text(
             "Forreal Logo",
-            style: TextStyle(color: Colors.brown),
+            style: TextStyle(color: Colors.brown[50]),
           ),
         );
       default: return AppBar(
         elevation: 0.8,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.brown[300],
         title: Text(
           "Forreal Logo",
-          style: TextStyle(color: Colors.brown),
+          style: TextStyle(color: Colors.brown[50]),
         ),
       );
     }
-
-
     // return AppBar(
     //   elevation: 0.8,
     //   backgroundColor: Colors.white,
@@ -138,19 +112,20 @@ class _RootAppState extends State<RootApp> {
     return Container(
       height: 80,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.brown[300],
         border: Border(top: BorderSide(color: Colors.grey.withOpacity(0.2)))),
       child: Padding(
         padding: const EdgeInsets.only(left: 10,right: 10,top: 5),
         child: Row(
            crossAxisAlignment: CrossAxisAlignment.start,
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-           children: List.generate(itemsTab.length, (index) {
+           children: List.generate(iconsTab.length, (index) {
            return IconButton(
               icon: Icon(
                 itemsTab[index]['icon'],
                 size: itemsTab[index]['size'],
-                color: activeTab == index ? Colors.brown: Colors.black,
+                // color: Colors.brown[100],
+                color: activeTab != index ? Colors.brown: Colors.brown[100],
                  ),
            onPressed:() {
                 setState(() {
