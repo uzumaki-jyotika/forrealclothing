@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:forrealclothing/pages/heart.dart';
 
 class CustomCarouselHomePage extends StatefulWidget {
   final List<String> items;
@@ -47,9 +48,37 @@ class _CustomCarouselHomePageState extends State<CustomCarouselHomePage> {
                           fit: BoxFit.cover,
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5, ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Icon(
+                              Icons.favorite_border_rounded,
+                              color: Colors.white,
+                              size: 28,
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+
+                            SizedBox(
+                              width: 15,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 170, left: 20),
+                        child: Text('Peacock Collection',style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),),
+                      ),
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        color: Colors.black.withOpacity(0.2),
+                        color: Colors.brown.withOpacity(0.1),
                       ),
                     ],
                   );
@@ -82,7 +111,7 @@ class ActiveDot extends StatelessWidget {
         width: 25,
         height: 8,
         decoration: BoxDecoration(
-          color: Colors.brown,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(5),
         ),
       ),
@@ -99,7 +128,7 @@ class InactiveDot extends StatelessWidget {
         width: 8,
         height: 8,
         decoration: BoxDecoration(
-          color: Colors.brown,
+          color: Colors.white54,
           borderRadius: BorderRadius.circular(5),
         ),
       ),

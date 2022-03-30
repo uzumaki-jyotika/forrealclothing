@@ -16,7 +16,7 @@ class _StorePageState extends State<StorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[200],
+      backgroundColor: Colors.brown[50],
       body: getBody(),
     );
   }
@@ -30,10 +30,10 @@ class _StorePageState extends State<StorePage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text('you are beautiful', style: TextStyle(
-                fontSize: 16
+                fontSize: 16, color: Colors.brown
               ),),
               SizedBox(width: 10,),
-              Icon(FontAwesomeIcons.mapMarkedAlt, size: 20,color: Colors.brown,)
+              Icon(FontAwesomeIcons.mapMarkedAlt, size: 20,color: Colors.brown[900],)
             ],
           ),
         ),
@@ -174,7 +174,64 @@ class _StorePageState extends State<StorePage> {
             ),
            ),
          );
-        }))
+        })),
+        Column(
+            children: List.generate(stores.length,(index) {
+              return Padding(
+                padding: const EdgeInsets.only(left: 20,right: 20, bottom: 20),
+                child: Container(
+                  height: 200,
+                  width: 150,
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: 200,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage( stores[index]),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        height: 200,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: Colors.brown.withOpacity(.35),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Align(
+                                alignment: Alignment.topRight,
+
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Row(
+                                children: [
+                                  Icon(FontAwesomeIcons.mapMarkerAlt,
+                                    size: 20,color: Colors.brown[100],),
+                                  SizedBox(width: 10,),
+                                  Text(
+                                    storeName[index],
+                                    style: TextStyle(fontSize: 10, color: Colors.brown[100]),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            })),
+
        ],
       ),
     );

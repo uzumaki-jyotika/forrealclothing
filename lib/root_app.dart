@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:forrealclothing/constants.dart';
 import 'package:forrealclothing/pages/Cart_Page.dart';
 import 'package:forrealclothing/pages/account_page.dart';
+import 'package:forrealclothing/pages/explore_page.dart';
 import 'package:forrealclothing/pages/home_pages.dart';
 import 'package:forrealclothing/pages/more_Pages.dart';
 import 'package:forrealclothing/pages/store_page.dart';
@@ -21,7 +22,7 @@ class _RootAppState extends State<RootApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[100],
+      backgroundColor: Colors.black,
       bottomNavigationBar: getFooter(),
       appBar: getAppBar(),
       body: getBody(),
@@ -32,10 +33,12 @@ class _RootAppState extends State<RootApp> {
     return IndexedStack(
       index: activeTab,
       children: [
-        StorePage(),
+
         HomePages(),
-        AccountPage(),
+        ExplorePage(),
         CartPage(),
+        AccountPage(),
+
         MorePage(),
       ],
     );
@@ -46,25 +49,43 @@ class _RootAppState extends State<RootApp> {
       case 0:
         return AppBar(
           elevation: 0.8,
-          backgroundColor: Colors.brown[300],
+          backgroundColor: Colors.black,
           title: Text(
-            "Forreal Home",
+            "Forreal clothing",
             style: TextStyle(color: Colors.brown[50]),
           ),
         );
       case 1:
         return AppBar(
           elevation: 0.8,
-          backgroundColor: Colors.brown[300],
+          backgroundColor: Colors.black,
           title: Text(
-            "Search",
+            "Explore",
             style: TextStyle(color: Colors.brown[50]),
           ),
+          actions: [
+            IconButton(
+              icon:
+              Icon(
+                Icons.search,
+                color: Colors.white70,
+              ),
+              onPressed: () => print("Add"),
+            ),
+            IconButton(
+              icon:
+              Icon(
+                Icons.list,
+                color: Colors.white70,
+              ),
+              onPressed: () => print("Add"),
+            ),
+          ],
         );
       case 2:
         return AppBar(
           elevation: 0.8,
-            backgroundColor: Colors.brown[300],
+            backgroundColor: Colors.black,
           title: Text(
             "Cart",
             style: TextStyle(color: Colors.brown[50]),
@@ -112,7 +133,7 @@ class _RootAppState extends State<RootApp> {
     return Container(
       height: 80,
       decoration: BoxDecoration(
-        color: Colors.brown[300],
+        color: Colors.black,
         border: Border(top: BorderSide(color: Colors.grey.withOpacity(0.2)))),
       child: Padding(
         padding: const EdgeInsets.only(left: 10,right: 10,top: 5),
@@ -125,7 +146,7 @@ class _RootAppState extends State<RootApp> {
                 itemsTab[index]['icon'],
                 size: itemsTab[index]['size'],
                 // color: Colors.brown[100],
-                color: activeTab != index ? Colors.brown: Colors.brown[100],
+                color: activeTab != index ? Colors.white70: Colors.deepOrange,
                  ),
            onPressed:() {
                 setState(() {

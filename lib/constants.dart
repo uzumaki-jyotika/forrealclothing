@@ -6,8 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 List itemsTab = [
   {"icon": Icons.home},
   {"icon": Icons.search},
-  {"icon": Icons.account_box},
-  {"icon": Icons.shopping_cart},
+  {"icon": Icons.shopping_basket_outlined},
+  {"icon": Icons.account_box_outlined},
   {"icon": Icons.more_horiz},
 ];
 const String homeImg =
@@ -79,8 +79,8 @@ const stores = [
 
 
 const List<String> storeName = [
- "Forreal, India",
- "Forreal, Paris",
+ "Forreal - India",
+ "Forreal - Paris",
  "Forreal - London",
 ];
 
@@ -128,3 +128,4 @@ List menusMore = [
   "Loyalty Card",
   "My orders"
 ];
+const kDefaultPaddin = 20.0;
